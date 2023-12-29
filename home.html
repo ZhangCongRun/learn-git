@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>首页</title>
+	<link href="../css/mui.css" rel="stylesheet" />
+	<link href="../css/common.css" rel="stylesheet" />
+	<style>
+		.wel-img {
+			width: 18px;
+			height: 18px;
+			margin-left: 3px;
+			margin-right: 3px;
+			margin-bottom: 3px;
+		}
+
+		.mui-checkbox input[type="checkbox"]::before,
+		.mui-radio input[type="radio"]::before {
+			font-family: Muiicons;
+			font-size: 24px;
+			font-weight: 400;
+			line-height: 1;
+			text-decoration: none;
+			color: #aaa;
+			border-radius: 0;
+			background: 0 0;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		.wode {
+			/* position: right; */
+			color: white;
+			margin-top: 10px;
+			float: right;
+		}
+
+		.pic {
+			position: relative;
+		}
+
+		.pic span {
+			position: absolute;
+			top: -9px;
+			right: -8px;
+		}
+	</style>
+	<script type="text/javascript" src="../plugins/fastclick.js"></script>
+	<script>
+		if ('addEventListener' in document) {
+			document.addEventListener('DOMContentLoaded', function () {
+				FastClick.attach(document.body);
+			}, false);
+		}
+	</script>
+</head>
+
+<body>
+	<!--首页头部-->
+	<header class="mui-bar mui-bar-nav mod-header-index">
+		<h1 class="mui-title">智慧营维</h1>
+		<div class="wode" onclick="Home.toMine()">电子名片</div>
+	</header>
+
+	<!--底部bar-->
+	<nav class="mui-bar mui-bar-tab mod-bar-tab">
+		<a class="mui-tab-item mui-active" href="javascript:void(0);">
+			<span class="bar-icon icon-home-active"></span>
+			<span class="mui-tab-label">首页</span>
+		</a>
+		<a class="mui-tab-item" href="tools.html">
+			<span class="bar-icon icon-tools"></span>
+			<span class="mui-tab-label">常用工具</span>
+		</a>
+		<a class="mui-tab-item" href="index.html">
+			<span class="bar-icon icon-me"></span>
+			<span class="mui-tab-label">我的</span>
+
+		</a>
+	</nav>
+
+	<!--首页主体-->
+	<div class="mui-content module-content">
+		<div class="welcome-txt" style="height:40px;">
+			<marquee id="welcomWord" direction="left" behavior="slide" scrollamount="50" scrolldelay="300" width="100%"
+				style="width:100%;font-size:18px;font-weight: 100;"></marquee>
+		</div>
+
+		<!--<div class="data-box" style="height:280px;">
+			<div class="date-pro" id="date-pro">
+                <div class="date-pro-inner">
+                    <canvas width=300 height=160 id="canvas-preview"></canvas>
+                    <div class="can-description">
+                        <h2>今日工作量</h2>
+                        <p id="jrgzl"></p>
+                    </div>
+                    <span class="num-per num-per0">0%</span>
+                    <span class="num-per num-per50">50%</span>
+                    <span class="num-per num-per100">100%</span>
+                </div>
+            </div>
+			<div class="date-num flex" >
+				<div class="flex-1 data-num-list" id="cjrdbl">
+					<h3>当日待办量</h3>
+					<p id="jrdbl"></p>
+				</div>
+				<div class="flex-1 data-num-list" id="cjrwcl">
+					<h3>今日完成量</h3>
+					<p id="jrwcl"></p>
+				</div>
+				<div class="flex-1 data-num-list" id="cdyzb">
+					<h3>当月指标</h3>
+					<p id="dyzb"></p>
+				</div>
+			</div>
+		</div>-->
+		<div class="data-box">
+			<div class="flex" style="margin-top:10px;">
+				<h4 style="width:40%;float:left;margin:10px 5%;">今日待办</h4>
+				<h4 style="width:40%;float:left;margin:10px 5%;">本月已办</h4>
+			</div>
+			<div style="line-height:35px;margin-bottom:30px;font-weight:bold;color:#FFFFFF;border-radius:5px;">
+				<div class="flex" id="showZhanShiKt">
+					<div id="969a3a7bb78242c09842a0377a2ac683" data-starturl="cn.com.starit.mobile.view.KtListActivity"
+						data-packagename="com.ustc.mobile.NewGongDanChuLi" class="nav-iconkt" data-serviceversion=""
+						data-isneedupdate=""
+						style="background-color:#EE5C42;border-radius:5px;width:40%;float:left;margin:10px 5%;">
+						<span style="margin-left:10%">装移机</span><span id="dayZJ"
+							data-starturl="cn.com.starit.mobile.view.KtListActivity"
+							data-packagename="com.ustc.mobile.NewGongDanChuLi" data-serviceversion=""
+							data-isneedupdate="" style="margin-left:30%">0</span>
+					</div>
+					<div id="zhuangyijiMou"
+						style="background-color:#1E90FF;border-radius:5px;width:40%;float:left;margin:10px 5%;">
+						<span style="margin-left:10%">装移机</span><span id="mouZJ" style="margin-left:30%">0</span>
+					</div>
+				</div>
+				<div class="flex" id="showZhanShiGZ">
+					<div id="70267682e6514ea6bab4c5b0d4cd5912" data-starturl="cn.com.starit.mobile.view.SaListActivity"
+						data-packagename="com.ustc.mobile.NewGongDanChuLi" class="nav-icongz" data-serviceversion=""
+						data-isneedupdate=""
+						style="background-color:#EE5C42;border-radius:5px;width:40%;float:left;margin:10px 5%;">
+						<span style="margin-left:10%">修&nbsp;&nbsp;&nbsp;&nbsp;障</span><span id="dayXZ"
+							data-starturl="cn.com.starit.mobile.view.SaListActivity"
+							data-packagename="com.ustc.mobile.NewGongDanChuLi" data-serviceversion=""
+							data-isneedupdate="" style="margin-left:30%">0</span>
+					</div>
+					<div id="xiuzhangMou"
+						style="background-color:#1E90FF;border-radius:5px;width:40%;float:left;margin:10px 5%;">
+						<span style="margin-left:10%">修&nbsp;&nbsp;&nbsp;&nbsp;障</span><span id="mouXZ"
+							style="margin-left:30%">0</span>
+					</div>
+				</div>
+				<div class="flex" id="showZhanShiSJ">
+					<div id="5b15cb8a6d1e4309ad39f9a9abdad4df" data-starturl="cn.com.starit.mobile.view.SjdActivity"
+						data-packagename="com.ustc.mobile.NewGongDanChuLi" class="nav-iconsj" data-serviceversion=""
+						data-isneedupdate=""
+						style="background-color:#EE5C42;border-radius:5px;width:40%;float:left;margin:10px 5%;">
+						<span style="margin-left:10%">营&nbsp;&nbsp;&nbsp;&nbsp;销</span><span
+							data-starturl="cn.com.starit.mobile.view.SjdActivity"
+							data-packagename="com.ustc.mobile.NewGongDanChuLi" data-serviceversion=""
+							data-isneedupdate="" id="dayYX" style="margin-left:30%">0</span>
+					</div>
+					<div style="background-color:#1E90FF;border-radius:5px;width:40%;float:left;margin:10px 5%;">
+						<span style="margin-left:10%">营&nbsp;&nbsp;&nbsp;&nbsp;销</span><span id="mouYX"
+							style="margin-left:30%">0</span>
+					</div>
+				</div>
+				<!--1E90FF 63B8FF-->
+			</div>
+
+		</div>
+
+		<div class="module-nav index-nav">
+			<ul id="firstLine" class="mui-clearfix">
+
+			</ul>
+			<ul id="secondLine" class="mui-clearfix">
+				<!--<li id="zdwh">
+						<div class="nav-icon" style="background:url(../images/app_07_10.png) no-repeat; background-size: 100% 100%;">
+							<span id="showNumber"></span>
+						</div>
+						<p class="nav-txt">主动维护</p>
+					</li>
+					<li id="zqkth5">
+						<div id="zqkth5_num" style="margin-left: 80%;color: red;"></div>
+						<div class="nav-icon" style="background:url(../images/zqkt.png) no-repeat; background-size: 100% 100%;"></div>
+						<p class="nav-txt">政企工单</p>
+					</li> -->
+				<li id="zhuangyiji">
+					<div id="zhuangyiji_num1" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"
+						style="background:url(../images/ic_install_remove.png) no-repeat; background-size: 100% 100%;">
+						<span id="zhuangyijiicon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">装移机</p>
+				</li>
+				<li id="xiuzhang">
+					<div id="xiuzhang_num" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"
+						style="background:url(../images/ic_repair.png) no-repeat; background-size: 100% 100%;">
+						<span id="xiuzhangicon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">修障</p>
+				</li>
+				<li id="yingxiao">
+					<div id="../images/download/yx.png" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon"
+						style="background:url(../images/download/yx.png) no-repeat; background-size: 100% 100%;">
+					</div>
+					<p class="nav-txt">营销</p>
+				</li>
+				<li id="zhinengzuwang">
+					<div id="zqza_num4" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"  style="background:url(../images/icon_app_znzw.png) no-repeat; background-size: 100% 100%;">
+						<span id="zhinengzuwangicon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">智能组网</p>
+				</li>
+
+				<li id="yidongguzhang">
+					<div id="yidongguzhang_num" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"
+						style="background:url(../images/gdcl/app_07_07.png) no-repeat; background-size: 100% 100%;">
+						<span id="yidongguzhangicon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">移动故障</p>
+				</li>
+				<li id="tousugongdan">
+					<div id="tousugongdan_num" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"
+						style="background:url(../images/gdcl/app_07_08.png) no-repeat; background-size: 100% 100%;">
+						<span id="tousugongdanicon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">投诉工单</p>
+				</li>
+				<li id="xiebangongdan">
+					<div id="xiebangongdan_num" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"
+						style="background:url(../images/gdcl/app_07_09.png) no-repeat; background-size: 100% 100%;">
+						<span id="xiebangongdanicon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">协办工单</p>
+				</li>
+				<li id="zhengqiguzhang">
+					<div id="zhengqiguzhang_num" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"
+						style="background:url(../images/icon_app_zqza.png) no-repeat; background-size: 100% 100%;">
+						<span id="zhengqiguzhangicon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">政企故障</p>
+				</li>
+				<li id="zqts">
+					<div id="zqts_num" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"
+						style="background:url(../images/icon_app_zqts.png) no-repeat; background-size: 100% 100%;">
+						<span id="zhengqitousuicon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">政企投诉</p>
+				</li>
+
+				<li id="yidongyingyeting">
+					<div id="yidongyingyeting_num" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"
+						style="background:url(../images/gdcl/app_07_06.png) no-repeat; background-size: 100% 100%;">
+						<span id="yidongyingyetingicon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">营业厅工单</p>
+				</li>
+				<li id="dadiannaoguzhang">
+					<div id="dadiannaoguzhang_num" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"
+						 style="background:url(../images/gdcl/ddngz.png) no-repeat; background-size: 100% 100%;">
+						<span id="dadianluicon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">大电路故障</p>
+				</li>
+				<li id="gwkt">
+					<div id="gwkt_num" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"
+						 style="background:url(../images/gdcl/gwkt.png) no-repeat; background-size: 100% 100%;">
+						<span id="gwkticon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">融合单开通</p>
+				</li>
+				<li id="zxkt">
+					<div id="zxkt_num" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon pic"
+						 style="background:url(../images/gdcl/zxkt.png) no-repeat; background-size: 100% 100%;">
+						<!--						<span id="yidongyingyetingicon" class="mui-badge mui-badge-danger disnone"></span>-->
+						<span id="zuwangzhuanxianicon" class="mui-badge mui-badge-danger disnone"></span>
+					</div>
+					<p class="nav-txt">组网专线</p>
+				</li>
+
+
+				<!--				<li id="zhudongweihu">-->
+				<!--					<div id="zhuangyiji_num3" style="margin-left: 80%;color: red;"></div>-->
+				<!--					<div class="nav-icon"-->
+				<!--						style="background:url(../images/ic_tools_act.png) no-repeat; background-size: 100% 100%;">-->
+				<!--					</div>-->
+				<!--					<p class="nav-txt">主动维护</p>-->
+				<!--				</li>-->
+
+			</ul>
+			<ul>
+				<!--					<li id="zdwh">-->
+				<!--						<div class="nav-icon" style="background:url(../images/app_07_10.png) no-repeat; background-size: 100% 100%;">-->
+				<!--							<span id="showNumber"></span>-->
+				<!--						</div>-->
+				<!--						<p class="nav-txt">主动维护</p>-->
+				<!--					</li>-->
+				<li id="zqkt" hidden data-serviceversion="com.ustcinfo.ict.zqkt" data-isneedupdate="false"
+					data-starturl="file:///android_asset/AHDXApp/page/index.html"
+					data-packagename="com.ustcinfo.ict.zqkt">
+					<div id="zqgd" style="margin-left: 80%;color: red;"></div>
+					<div class="nav-icon"
+						style="background:url(../images/zqkt.png) no-repeat; background-size: 100% 100%;"></div>
+					<p class="nav-txt">政企支撑</p>
+				</li>
+				<!--					<li id="zqkth5">-->
+				<!--						<div id="zqkth5_num" style="margin-left: 80%;color: red;"></div>-->
+				<!--						<div class="nav-icon" style="background:url(../images/zqkt.png) no-repeat; background-size: 100% 100%;"></div>-->
+				<!--						<p class="nav-txt">政企工单</p>-->
+				<!--					</li>-->
+			</ul>
+		</div>
+		<!--		<div style="font-size: 12px;text-align: center;position: absolute;bottom: 6.5%;margin:auto; left:0; right:0; ">-->
+		<!--			扫黄打非举报邮箱:lvjuan.ah@chinatelecom.cn</div>-->
+	</div>
+
+	<script type="text/javascript" src="../plugins/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript" src="../plugins/mui.min.js"></script>
+	<!--		<script type="text/javascript" src="../js/bugly.js" ></script>-->
+	<script type="text/javascript" src="../appInfo/appIdInfo.js"></script>
+	<script type="text/javascript" src="../appInfo/appPkgInfo.js"></script>
+	<script type="text/javascript" src="../plugins/jsencrypt.js"></script>
+	<script type="text/javascript" src="../plugins/gauge.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/common/basePath.js"></script>
+	<script type="text/javascript" src="../js/common/globleParams.js"></script>
+	<script type="text/javascript" src="../plugins/layer_mobile/layer.js"></script>
+	<script type="text/javascript" src="../js/utils/layerUtil.js"></script>
+	<script type="text/javascript" src="../js/bridge/bridge.js"></script>
+	<script type="text/javascript" src="../plugins/json2.js"></script>
+	<script type="text/javascript" src="../js/gdcl.js"></script>
+	<script type="text/javascript" src="../js/openApp.js"></script>
+	<script type="text/javascript" src="../js/home_one.js"></script>
+<!--		<script type="text/javascript" src="../js/home.js"></script>-->
+	<script>
+
+		var userName = window.localStorage.getItem("userName");
+		var welWord = "尊敬的" + userName + ",欢迎您";
+		$("#welcomWord").text(welWord);
+
+		document.querySelector('#xiuzhang').addEventListener('click', function () {
+			window.location.href = '../gdcla/views/gzzad/trouble_list.html';
+		}, false);
+		document.querySelector('#zhuangyiji').addEventListener('click', function () {
+			// window.location.href = '../gdcla/views/gzktd/open_list_two.html';
+			window.location.href = '../gdcla/views/zyj/zyj_list.html';
+		}, false);
+		document.querySelector("#zhinengzuwang").addEventListener('click',function (){
+			window.location.href = '../gdcla/views/znzw/znzw_list.html';
+		})
+		document.querySelector('#yidongguzhang').addEventListener('click', function () {
+			window.location.href = '../gdcla/views/ydgz/ydgz_list.html';
+		}, false);
+		// document.querySelector('#zhudongweihu').addEventListener('click', function () {
+		// 	window.location.href = '../gdcl/views/zdwh/zdwh_list.html';
+		// }, false);
+		document.querySelector('#tousugongdan').addEventListener('click', function () {
+			window.location.href = '../gdcla/views/tsgd/tsgd_list.html';
+		}, false);
+		document.querySelector('#xiebangongdan').addEventListener('click', function () {
+			window.location.href = '../gdcla/views/xbgd/xbgd_list.html';
+		}, false);
+		document.querySelector('#yidongyingyeting').addEventListener('click', function () {
+			window.location.href = '../gdcla/views/ydyyt/ydyyt_list.html';
+		}, false);
+		//大电路故障
+		document.querySelector('#dadiannaoguzhang').addEventListener('click', function () {
+			window.location.href = '../gdcla/views/ddngz/ddngz_list.html';
+		}, false);
+		document.querySelector("#zhengqiguzhang").addEventListener('click', function () {
+			window.location.href = '../gdcla/views/zqgz/zqgz_list.html';
+		}, false);
+		document.querySelector('#zqts').addEventListener('click', function () {
+			window.location.href = '../gdcla/views/zqtsd/zqts_list.html';
+		}, false);
+		document.querySelector('#gwkt').addEventListener('click', function () {
+			window.location.href = '../gdcla/views/gwkt/gwkt_list.html';
+		}, false);
+		document.querySelector('#zxkt').addEventListener('click', function () {
+			// window.location.href = '../gdcla/views/zdgh/zdgh_list.html';
+			window.location.href = '../gdcla/views/zxkt/zxkt_list.html';
+		}, false);
+
+	</script>
+
+
+	<!--		<script type="text/javascript" src="../js/vconsole.min.js"></script>-->
+	<!--		<script>-->
+	<!--  // 初始化-->
+	<!--  var vConsole = new VConsole();-->
+	<!--  console.log('Hello world');-->
+	<!--</script>-->
+</body>
+
+</html>
