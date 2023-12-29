@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>智慧营维</title>
+	<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+	<link href="./css/common.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="../css/index.css" />
+	<script type="text/javascript">
+			document.addEventListener('plusready', function() {
+				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+			});
+		</script>
+</head>
+
+<body>
+<div class="boxtop clearfix">
+	<!--<img class="back" src="../images/back.png" width="10" alt="" />-->
+	<span>智慧营维</span>
+</div>
+<!--底部bar-->
+<nav class="mui-bar mui-bar-tab mod-bar-tab">
+	<a class="mui-tab-item" href="home.html">
+		<span class="bar-icon icon-home"></span>
+		<span class="mui-tab-label">首页</span>
+	</a>
+	<a class="mui-tab-item" href="tools.html">
+		<span class="bar-icon icon-tools"></span>
+		<span class="mui-tab-label">常用工具</span>
+	</a>
+	<a class="mui-tab-item mui-active" href="javascript:void(0);">
+		<span class="bar-icon icon-me-active"></span>
+		<span class="mui-tab-label">我的</span>
+	</a>
+</nav>
+<div class="box">
+	<div class="user clearfix">
+		<img id="chooseImg" class="userimg" src="../images/head.png" width="35" height="40" alt="" />
+		<div id="username" class="usertext">用户</div>
+		<img id="isdy" class="userimg2" width="17" alt="" />
+		<img id="loginout" class="exitimg" src="../images/exitOut.png" width="35" alt="" />
+
+	</div>
+
+	<table border="0" cellspacing="0" cellpadding="0" class="tabcon1">
+		<colgroup>
+			<col width="33%" />
+			<col width="34%" />
+			<col width="33%" /> </colgroup>
+		<tr>
+			<td class="botmdr" id="zipai">
+				<img src="../images/personal_icon6.png" width="30" />
+				<div class="text">仪容自检</div>
+			</td>
+			<td class="untopdr" id="myPayment">
+				<img src="../images/personal_icon1.png" width="30" />
+				<div class="text">我的薪酬</div>
+			</td>
+			<td class="botmdr" id="myKpi">
+				<img src="../images/personal_icon13.png" width="30" />
+				<div class="text">我的KPI</div>
+			</td>
+		</tr>
+		<tr>
+			<td id="onlineShop">
+				<img src="../images/personal_icon8.png" width="35" />
+				<div class="text">网上商城</div>
+			</td>
+			<td class="lefrigtdr" id="nianbao">
+				<img src="../images/personal_icon12.png" width="30" />
+				<div class="text">年报</div>
+			</td>
+			<td id="yingxiaojigou">
+				<img src="../images/personal_icon11.png" width="30" />
+				<div class="text">营销机构选择</div>
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellspacing="0" cellpadding="0" class="tabcon1">
+		<colgroup>
+			<col width="33%" />
+			<col width="34%" />
+			<col width="33%" /> </colgroup>
+		<tr>
+			<td id="KBS">
+				<img src="../images/personal_icon14.png" width="38" />
+				<div class="text">知识库</div>
+			</td>
+			<td class="lefrigtdr" id="kecheng">
+				<img src="../images/img8.png" width="38" />
+				<div class="text">我的课程</div>
+			</td>
+			<td id="kaoshi">
+				<img src="../images/personal_icon11.png" width="30" />
+				<div class="text">我的考试</div>
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellspacing="0" cellpadding="0" class="tabcon1">
+		<colgroup>
+			<col width="33%" />
+			<col width="34%" />
+			<col width="33%" /> </colgroup>
+		<tr>
+			<td class="botmdr" id="question">
+				<img src="../images/personal_icon3.png" width="30" />
+				<div class="text">问题反馈</div>
+			</td>
+			<td class="untopdr" id="myaddv">
+				<img src="../images/personal_suggestion.png" width="30" />
+				<div class="text">我的建议</div>
+			</td>
+			<td class="botmdr" id="showExample">
+				<img src="../images/guide.png" width="30" />
+				<div class="text">演示教程</div>
+			</td>
+		</tr>
+		<tr>
+			<td id="power">
+				<img src="../images/personal_icon13.png" width="30" />
+				<div class="text">隐私条款</div>
+			</td>
+			<td class="lefrigtdr" id="version">
+				<img src="../images/personal_icon4.png" width="30" />
+				<div class="text">版本信息</div>
+			</td>
+			<td id="clearCache">
+				<img src="../images/personal_icon10.png" width="30" />
+				<div class="text">清除缓存</div>
+			</td>
+		</tr>
+	</table>
+
+	<table border="0" cellspacing="0" cellpadding="0" class="tabcon1">
+		<colgroup>
+			<col width="33%" />
+			<col width="34%" />
+			<col width="33%" /> </colgroup>
+		<tr style="height:1px">
+			<td style="height:1px"></td>
+			<td style="height:1px"></td>
+			<td style="height:1px"></td>
+		</tr>
+		<tr>
+			<td class="disnone botmdr" id="coach">
+				<img src="../images/personal_icon14.png" width="38" />
+				<div class="text">教练台</div>
+			</td>
+			<td class="disnone lefrigtdr" id="changeAccount">
+				<img src="../images/personal_icon10.png" width="30" />
+				<div class="text">切换账号</div>
+			</td>
+			<td class="lefrigtdr" id="settings">
+				<img src="../images/setting.png" width="30" />
+				<div class="text">设置</div>
+			</td>
+			<td class="lefrigtdr" id="help">
+				<img src="../images/personal_icon10.png" width="30" />
+				<div class="text">帮助</div>
+			</td>
+		</tr>
+	</table>
+
+</div>
+<script type="text/javascript" src="../plugins/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="../plugins/mui.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/common/basePath.js"></script>
+<script type="text/javascript" src="../js/common/globleParams.js"></script>
+<script type="text/javascript" src="../plugins/layer_mobile/layer.js"></script>
+<script type="text/javascript" src="../js/utils/layerUtil.js"></script>
+<script type="text/javascript" src="../js/bridge/bridge.js"></script>
+<script type="text/javascript" src="../plugins/jsencrypt.js"></script>
+<script type="text/javascript" src="../plugins/md5.min.js"></script>
+<script src="../js/personal/personal.js"></script>
+</body>
+</html>
